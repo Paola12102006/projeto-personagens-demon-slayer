@@ -1,0 +1,228 @@
+body {
+    background-color: #000000;
+}
+
+.d-none {
+    display: none;
+}
+
+#menu {
+    position: absolute;
+    top: 10px;
+}
+
+#menu .menu-li {
+    color: #f01c25;
+    background-color: #f01c25;
+    padding: 4px 5px;
+    text-align: center;
+    font-family: 'Secular One', sans-serif;
+    font-size: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    position: relative;
+    left: -85%;
+    transition: .5s ease;
+    z-index: 1;
+}
+
+#menu .menu-li:hover,
+#menu .menu-li.open {
+    left: 0;
+    color: #eee;
+}
+
+.h100 {
+    height: 100%;
+}
+
+.btns {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 180px;
+    padding: 30px 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background-color: #0000004d;
+}
+
+.btns .btn {
+    width: 120px;
+    border-radius: 35%;
+    cursor: pointer;
+    transition: transform .3s ease, border-radius .5s ease;
+}
+
+.btns .btn.selecionado {
+    transform: scale(1.2);
+    border-radius: 50%;
+    box-shadow: 0 0 10px #f01c25;
+}
+
+.personagens {
+    height: 100vh;
+}
+
+.personagens::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #000000;
+    height: 100%;
+    width: 450px;
+    box-shadow: 10px 0px 90px 150px #000;
+}
+
+.personagens .personagem {
+    display: none;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+.personagens .personagem.selecionado {
+    display: flex;
+}
+
+.conteudo {
+    position: absolute;
+    left: 40px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 560px;
+    padding: 10px 0 0;
+    color: #eee;
+}
+
+.conteudo .logo {
+    background-size: cover;
+    margin-bottom: 15px;
+    background-image: url(../imgs/logo-demon-slayer.png);
+    width: 162px;
+    height: 153px;
+}
+
+.conteudo .nome-personagem {
+    color: #e9e8e8;
+    font-size: 40px;
+    font-family: 'Secular One', sans-serif;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.conteudo .descricao {
+    color: #ddd;
+    font-family: 'Rubik', sans-serif;
+    overflow-y: auto;
+    max-height: 350px;
+    padding-right: 10px;
+}
+
+.conteudo .descricao p {
+    line-height: 23px;
+}
+
+.conteudo .descricao p:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width: 768px) {
+    #menu {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        top: 0;
+        padding: 5px 0 0;
+        background-color: #0000004d;
+    }
+
+    #menu .menu-li {
+        background-color: #991219;
+        color: #eee;
+        margin-bottom: 0;
+        position: static;
+        width: 100px;
+        transition: .2s ease;
+    }
+
+    #menu .menu-li.open {
+        background-color: #f01c25;
+    }
+
+    .btns {
+        height: auto;
+        width: 100%;
+        flex-direction: row;
+        padding: 10px 20px;
+        top: 34px;
+    }
+
+    .btns .btn {
+        width: 80px;
+    }
+
+    .personagens .personagem {
+        flex-direction: column;
+    }
+
+    .personagens::after {
+        top: 80%;
+        width: 100%;
+    }
+
+    .personagens .personagem .img {
+        object-fit: cover;
+    }
+
+    .conteudo {
+        left: 0;
+        width: 100%;
+        height: auto;
+        top: 150px;
+    }
+
+    .conteudo .logo {
+        align-self: flex-start;
+        margin: 0 0 0 5px;
+        width: 120px;
+        height: 114px; 
+    }
+
+    .conteudo .nome-personagem {
+        font-size: 36px;
+        margin: 25px 0 0 0;
+    }
+
+    .conteudo .descricao {
+        width: 96%;
+        max-height: calc(100vh - 362px);
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .personagens::after {
+        top: 73%;
+    }
+
+    .conteudo {
+        height: calc(100% - 141px);
+        top: 141px;
+        justify-content: space-between;
+    }
+
+    .conteudo .nome-personagem {
+        margin: 105px 0 0 0;
+    }
+
+    .conteudo .descricao {
+        max-height: calc(100% - 290px);
+    }
+}
